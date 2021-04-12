@@ -21,7 +21,9 @@
     height: 100%;
 
 }
-
+.card-1 {
+    width: 100%;
+}
 .top-1 {
     width: 100%;
     height: 9em;
@@ -29,6 +31,11 @@
     flex-wrap: wrap;
     justify-content: left;
 }
+.b_img {
+    width: 4em;
+    height: 4em;
+}
+
 .top-1-1 {
     width: 15em;
     height: 100%;
@@ -58,6 +65,13 @@
     height: 100%;
 }
 
+.red-1{
+    color: red;
+    position: relative;
+    top: -1.2em;
+    left: 2.2em;
+  }
+
 .categories {
     display: flex;
     flex-wrap: wrap;
@@ -84,15 +98,18 @@
 }
 
 .icon-2 {
-    height: 2em;
-    width:  2em;
+    height:     2em;
+    width:      2em;
+    /* margin-top: 1em; */
 }
 
 .item-1 {
     height: 2em;
 }
 
-
+.butt-1 {
+    height: 4em;
+}
 
 span {
     color: blue;
@@ -105,21 +122,28 @@ ion-button {
 }
 
 .g-card { 
-    max-width: 170px;
-    width: 175px;
+    max-width: 340px;
+    width: 340px;
     height: auto;
     margin-top: 0;
 }
 
+.f-card { 
+    width: 480px;
+    height: auto; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 0;
+}
+
 .img-1 { 
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 200px;
     object-fit: contain;
   }
 
 .item-2{
     word-wrap: break-word;
-    max-width: 175px;
 }
 
 .selt {

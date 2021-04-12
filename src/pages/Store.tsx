@@ -13,16 +13,23 @@ export const i_state = {
     auth:                   false,
     route:                  "",
     login:                  {
-        id:                 0,
-        phone:              "",
-        fio:                "",
-        email:              "",
-        pass:               "",
-        role:               0,
-        image:              "",    
+        ГУИД:                   0,
+        Телефон:                "",
+        ФИО:                    "",
+        элПочта:                "",
+        Пароль:                 "",
+        Роль:                   0,
+        Картинка:               "",
     },
     categories:             [],
     goods:                  [],
+    basket:                 [],
+    order:                  [],
+    market:                 {
+        Наименование:       "ООО Логика",
+        Адрес:              "г.Якутск, пр Ленина д.1, оф 707",
+        Доставка:           150,
+    }
 }
 
 
@@ -110,7 +117,10 @@ const                   rootReducer = combineReducers({
     route:          reducers[1],
     login:          reducers[2],
     categories:     reducers[3],
-    goods:          gdReducer,
+    goods:          reducers[4], //gdReducer,
+    basket:         reducers[5],  
+    order:          reducers[6],  
+    market:         reducers[7],
 
 })
 
@@ -124,17 +134,23 @@ function gdReducer(state = i_state.goods, action){
 export const Store   =  create_Store(rootReducer, i_state)
 
 
-export const URL = "https://marketac.ru/ut/hs/API/V1/"
-
+//export const URL = "https://marketac.ru/ut/hs/API/V1/"
+export const URL = "http://91.185.237.187:29080/zasimov/hs/API/V1/"
 
 export async function getDatas(){
 }
 
 async function exec(){
-    let res = await getData("МП_Категории", {})
+    let res = await getData("Категории", {})
     Store.dispatch({type: "categories", categories: res})
     console.log(res)
+
+    res = await getData("Продукты", {})
+    Store.dispatch({type: "goods", goods: res})
+    console.log(res)
+
 }
+
 
 
 exec();
