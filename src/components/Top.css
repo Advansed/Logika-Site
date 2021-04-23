@@ -1,0 +1,47 @@
+.top-1 {
+    width: 100%;
+    height: 9em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.top-1-1 {
+    width: 15em;
+    height: 100%;
+}
+
+.i-grid {
+    display: flex; 
+    flex-flow: column;
+    height: 100%;
+}
+
+.i-row-1{
+    height:auto;
+    padding: auto;
+}
+.i-row-2{
+    height: auto;
+    padding: auto;
+}
+
+.top-1-2 {
+    width: 38em;
+    height: 100%;
+}
+.top-1-3 {
+    width: 22em;
+    height: 100%;
+}
+
+.icon-1 {
+    height: 0.75em;
+    width: 0.75em;
+}
+
+.icon-2 {
+    height:     2em;
+    width:      2em;
+    /* margin-top: 1em; */
+}

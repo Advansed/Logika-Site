@@ -76,3 +76,7 @@
 .f-21 {font: 21px Roboto }
 .f-22 {font: 22px Roboto }
 .f-23 {font: 23px Roboto }
+
+.hidden {
+    display: none;
+}

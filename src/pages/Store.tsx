@@ -135,7 +135,7 @@ export const Store   =  create_Store(rootReducer, i_state)
 
 
 //export const URL = "https://marketac.ru/ut/hs/API/V1/"
-export const URL = "http://91.185.237.187:29080/zasimov/hs/API/V1/"
+export const URL = "http://91.185.237.187:27080/trade_zve/hs/API/V1/"
 
 export async function getDatas(){
 }

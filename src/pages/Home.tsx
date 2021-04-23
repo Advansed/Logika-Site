@@ -1,7 +1,14 @@
 import { IonCol, IonContent, IonGrid, IonHeader, IonPage, IonRow } from '@ionic/react';
 //import { callOutline, cartOutline, enterOutline, homeOutline, mailOpenOutline } from 'ionicons/icons'
 import { useState } from 'react';
-import { Basket, Categories, GCard, Goods, Header, Order, Top, Topper } from '../components/Functions';
+import { Basket } from '../components/Basket';
+import { Categories } from '../components/Categories';
+import { GCard } from '../components/GCard';
+import { Goods } from '../components/Goods';
+import { Header } from '../components/Header';
+import { Order } from '../components/Order';
+import { Top } from '../components/Top';
+import { Topper } from '../components/Topper';
 import './Home.css';
 import { Store } from './Store';
 
@@ -37,11 +44,15 @@ const Home: React.FC = () => {
           <div className="body-1">
               <IonGrid>
                 <IonRow>
+                  <IonCol size="12">
+                    <Topper />
+                  </IonCol>
+                </IonRow>
+                <IonRow>
                   <IonCol size="3">
                     <Categories onClick = { onCat }/>
                   </IonCol>
                   <IonCol size="9">
-                    <Topper />
                     <IonRow>
                       {
                         page === 0 
