@@ -74,7 +74,13 @@ export function   Delivery(props):JSX.Element {
             <IonCol>
               <IonButton
                 onClick = {()=>{  
-                  getData("Заказ", Store.getState().order )
+                  let order = Store.getState().order
+                  order.СтатусОплаты = "Не оплачено"
+                  order.МетодДоставки = order.Доставка
+                  order.Покупатель = "Покупатель"
+                  order.АдресДоставки 
+                  console.log(order)
+                  getData("Заказ", order )
                   Store.dispatch({type: "basket", basket: []})
                   props.setPage( 0 )
                 }}
