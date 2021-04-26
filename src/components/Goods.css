@@ -1,8 +1,10 @@
 .g-card { 
-    max-width: 340px;
-    width: 340px;
+    max-width: 250px;
+    width: 250px;
     height: auto;
     margin-top: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .f-card { 
@@ -14,11 +16,23 @@
 }
 
 .img-1 { 
-    width: 250px;
+    width: 240px;
     height: 200px;
     object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .item-2{
+.item-2{
     word-wrap: break-word;
+    padding-left: 0;
+    padding-right: 0;
+}
+.bottom-1{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.g-grid {
+    width: 100%;
 }

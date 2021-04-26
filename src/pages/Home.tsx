@@ -3,11 +3,13 @@ import { IonCol, IonContent, IonGrid, IonHeader, IonPage, IonRow } from '@ionic/
 import { useState } from 'react';
 import { Basket } from '../components/Basket';
 import { Categories } from '../components/Categories';
+import { Delivery } from '../components/Delivery';
 import { GCard } from '../components/GCard';
 import { Goods } from '../components/Goods';
 import { Header } from '../components/Header';
 import { Order } from '../components/Order';
-import { Top } from '../components/Top';
+import { Payment } from '../components/Payment';
+import { Top, Topv } from '../components/Top';
 import { Topper } from '../components/Topper';
 import './Home.css';
 import { Store } from './Store';
@@ -40,7 +42,7 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent class="i-content">
         <div className="i-body">
-          <Top weight = { weight } setPage =  { setPage } />
+          <Topv weight = { weight } setPage =  { setPage } />
           <div className="body-1">
               <IonGrid>
                 <IonRow>
@@ -67,6 +69,12 @@ const Home: React.FC = () => {
                         : page === 3
 
                         ? <Order setPage = { setPage } />
+                        : page === 5
+
+                        ? <Payment setPage = { setPage } />
+                        : page === 6
+
+                        ? <Delivery setPage = { setPage } />
                         : <></>
                       }
                     </IonRow>

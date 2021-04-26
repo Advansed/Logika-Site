@@ -53,13 +53,13 @@ export function   Order(props):JSX.Element {
     let item : Dictionary = {"city": "Якутск"   };
     let dict : Dictionary[] = []; dict.push(item);
     let elem = <>
-      <IonCard class="f-card">
+      <IonCard class="o-card">
         <IonCardHeader> Оформление заказа </IonCardHeader>
         <IonCardContent>
           <IonItem>
             <IonIcon slot="start" icon={ cardOutline } />
             <IonLabel position="stacked">Оплата</IonLabel>
-            <IonSelect value={ order.МетодОплаты } okText="Okay" cancelText="Dismiss" onIonChange={e => {
+            <IonSelect value={ order.МетодОплаты } okText="Да" cancelText="Нет" onIonChange={e => {
                 order.МетодОплаты = e.detail.value
                 Store.dispatch({type: "order", order: order})
                 if(order.МетодОплаты === "Эквайринг") setMP(true)
@@ -182,12 +182,12 @@ export function   Order(props):JSX.Element {
       if(order.МетодОплаты === "Эквайринг"){
         if(Order(order)){
           Store.dispatch({type: "order", order: order})
-          Store.dispatch({type: "route", route: "/page/payment"})
+          props.setPage( 5 )
         }
       } else {
         if(Order(order)){
           Store.dispatch({type: "order", order: order})
-          Store.dispatch({type: "route", route: "/page/delivery"})
+          props.setPage( 6 )
         }
       }
     }

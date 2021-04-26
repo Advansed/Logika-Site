@@ -62,17 +62,17 @@ export function   GCard(props):JSX.Element {
               <IonIcon icon={ arrowBackOutline }></IonIcon>
             </IonButton>
           </IonCardHeader>
-          <IonItem>
-            <h4 className="a-center font-14"><b>{ props.info.Наименование }</b></h4>
-          </IonItem>
           <IonRow>
             <IonCol size="5">
               <img className="f-card" src={  props.info.Картинка } alt="" />
             </IonCol>
             <IonCol size="7">
+              <IonItem>
+                <h4 className="a-center font-14"><b>{ props.info.Наименование }</b></h4>
+              </IonItem>
               <IonItem class="font-10">
                 <IonLabel position="stacked"> Цена </IonLabel>
-                <IonCardTitle class="f-price a-center"><b>{ props.info.Цена } руб.</b></IonCardTitle>
+                <IonCardTitle class="f-price a-center"><b>{ props.info.Цена } ₽/шт</b></IonCardTitle>
                 <IonChip>
                   <IonIcon icon = { checkmarkCircleOutline }/>
                   <IonText> В Наличии { props.info.Количество } шт </IonText>
@@ -101,32 +101,25 @@ export function   GCard(props):JSX.Element {
                   </IonButton>
                     { info.Всего }
                 </IonChip>
+                <IonChip onClick={()=>{
+                      addBasket(info.Количество)
+                  }}> В Корзину 
+                </IonChip>              
               </IonItem>
               <IonItem>
-                <IonChip onClick={()=>{
-                    addBasket(info.Количество)
-                }}> В Корзину </IonChip>
+                <IonLabel position="stacked">Описание</IonLabel>
+                <IonText class="text-2 font-10">
+                  { props.info.Описание }
+                </IonText>
+              </IonItem>
+              <IonItem>
+                <IonLabel position="stacked">Производитель</IonLabel>
+                <IonText class="text-2 font-10">
+                  { props.info.Производитель }
+                </IonText>
               </IonItem>
             </IonCol>
           </IonRow>
-          <IonItem>
-            <IonLabel position="stacked">Описание</IonLabel>
-            {/* <IonText>
-              { props.info.Описание }
-            </IonText> */}
-          </IonItem>
-          <IonItem>
-            {/* <IonLabel position="stacked">Описание</IonLabel> */}
-            <IonText class="text-2 font-10">
-              { props.info.Описание }
-            </IonText>
-          </IonItem>
-          <IonItem>
-            <IonLabel position="stacked">Производитель</IonLabel>
-            <IonText class="text-2 font-10">
-              { props.info.Производитель }
-            </IonText>
-          </IonItem>
           <IonToolbar>
   
           </IonToolbar>

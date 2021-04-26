@@ -1,4 +1,5 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCol, IonGrid, IonImg, IonItem, IonLoading, IonRow, IonText } from "@ionic/react"
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonChip, IonCol, IonGrid
+    , IonImg, IonItem, IonLoading, IonRow, IonText } from "@ionic/react"
 import { useEffect, useState } from "react"
 import { Store } from "../pages/Store"
 import './Goods.css'
@@ -74,60 +75,15 @@ export function   Goods(props):JSX.Element {
       }
     }
   
+
     for(let i = 0;i < info.length;i++){
       elem = <>
         { elem }
-        <IonCard class="g-card">
-          <IonCardHeader        
-            onClick = {()=>{
-              props.setGood( info[i] )
-              props.setPage( 2 )
-            }}
-          >
-            <IonImg src={ info[i].Картинка } class="img-1"></IonImg>
-          </IonCardHeader>
-          <IonCardContent>
-           <IonCardSubtitle
-                onClick = {()=>{
-                  props.setGood( info[i] )  
-                  props.setPage( 2 )
-                }}
-           >
-            <IonItem lines="none" class="bottom-1 font-12 w-100" >
-              <IonGrid class="w-100">
-                <IonRow class="w-100">
-                  <IonCol class="w-100">
-                    <b> { "Цена " + info[i].Цена  + "  руб"} </b>
-                  </IonCol>
-                </IonRow>
-                <IonRow class="w-100">
-                  <IonCol>
-                    <b> { "В наличии " + info[i].Количество + "  шт "} </b>
-                  </IonCol>
-                </IonRow>
-              </IonGrid>
-            </IonItem>
-            </IonCardSubtitle>
-            <IonItem>
-                <IonButton
-                  expand="block"
-                  shape="round"
-                  onClick={()=>{
-                    addBasket(info[i])
-                  }}
-                > В Корзину </IonButton>
-            </IonItem>
-            <IonItem class="item-2 w-100" lines="none"
-                onClick = {()=>{
-                  Store.dispatch({type: "route", route: "/goods/" + info[i].Код})  
-                }}
-             >
-                <IonText class="font-10 w-100">
-                  { info[i].Наименование }
-                </IonText>
-             </IonItem>
-          </IonCardContent>
-        </IonCard>
+        <Good info = { info[i] } 
+          addBasket = { addBasket }
+          setGood = { props.setGood }
+          setPage = { props.setPage }
+        />
       </>
     }
   
@@ -140,3 +96,48 @@ export function   Goods(props):JSX.Element {
     </>
 }
   
+function Good(props):JSX.Element {
+  let info = props.info
+  let elem = <>
+        <IonCard class="g-card">
+          <IonCardHeader        
+            onClick = {()=>{
+              props.setGood( info )
+              props.setPage( 2 )
+            }}
+          >
+            <IonImg src={ info.Картинка } class="img-1"></IonImg>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonItem class="item-2 w-100" lines="none"
+                onClick = {()=>{
+                  Store.dispatch({type: "route", route: "/goods/" + info.Код})  
+                }}
+             >
+                <IonText class="f-14 w-100">
+                  <b>{ info.Наименование }</b>
+                </IonText>
+            </IonItem>
+              <IonGrid class="g-grid">
+                <IonRow class="w-100">
+                  <IonCol size="6">
+                    <IonText class="f-18 blue">
+                      <b>{ info.Цена + " ₽/шт" }</b>
+                    </IonText>
+                  </IonCol>
+                  <IonCol size="6">
+                    <IonChip class="f-12"
+                      onClick={()=>{
+                        props.addBasket(info)
+                      }}
+                    > В Корзину </IonChip>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+          </IonCardContent>
+        </IonCard>
+
+  </>
+
+  return elem;
+}

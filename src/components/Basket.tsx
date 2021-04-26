@@ -114,7 +114,7 @@ export function   Basket(props):JSX.Element {
     }
   
     items = <>
-      <IonCard class="w-100" >
+      <IonCard class="b-card" >
         <IonCardHeader>
           <IonButton fill="clear"
             onClick= {()=>{
@@ -131,8 +131,6 @@ export function   Basket(props):JSX.Element {
         <IonCardHeader>
           Итого на сумму { sum }
         </IonCardHeader>
-      </IonCard>
-      <IonCard class="card-1">
         <IonRow>
           <IonCol>
             <IonButton expand="block" shape="round"
